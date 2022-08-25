@@ -1,0 +1,117 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Resource",
+"class": "ClockTime",
+"language": "GDScript",
+"path": "res://ClockTime.gd"
+}, {
+"base": "RigidBody",
+"class": "FPSCharTest",
+"language": "GDScript",
+"path": "res://FPSCharTest.gd"
+}, {
+"base": "Resource",
+"class": "Gases",
+"language": "GDScript",
+"path": "res://Gases.gd"
+}, {
+"base": "GhostProp",
+"class": "GhostCharacter",
+"language": "GDScript",
+"path": "res://GhostCharacter.gd"
+}, {
+"base": "StaticBody",
+"class": "GhostLevel",
+"language": "GDScript",
+"path": "res://GhostLevel.gd"
+}, {
+"base": "RigidBody",
+"class": "GhostProp",
+"language": "GDScript",
+"path": "res://GhostProp.gd"
+}, {
+"base": "Camera",
+"class": "MainCam",
+"language": "GDScript",
+"path": "res://MainCam.gd"
+}, {
+"base": "Resource",
+"class": "MyClass",
+"language": "GDScript",
+"path": "res://MyClass.gd"
+}, {
+"base": "KinematicBody",
+"class": "RemoteAvatar",
+"language": "GDScript",
+"path": "res://RemoteAvatar.gd"
+}, {
+"base": "Reference",
+"class": "RotorFormula",
+"language": "GDScript",
+"path": "res://RotorFormula.gd"
+}, {
+"base": "KinematicBody",
+"class": "Spacecraft",
+"language": "GDScript",
+"path": "res://Spacecraft.gd"
+}, {
+"base": "Resource",
+"class": "Span",
+"language": "GDScript",
+"path": "res://Span.gd"
+}, {
+"base": "Resource",
+"class": "ThermalGases",
+"language": "GDScript",
+"path": "res://ThermalGases.gd"
+}, {
+"base": "Resource",
+"class": "TimeHappener",
+"language": "GDScript",
+"path": "res://TimeHappener.gd"
+} ]
+_global_script_class_icons={
+"ClockTime": "",
+"FPSCharTest": "",
+"Gases": "",
+"GhostCharacter": "",
+"GhostLevel": "",
+"GhostProp": "",
+"MainCam": "",
+"MyClass": "",
+"RemoteAvatar": "",
+"RotorFormula": "",
+"Spacecraft": "",
+"Span": "",
+"ThermalGases": "",
+"TimeHappener": ""
+}
+
+[application]
+
+config/name="anodized"
+run/main_scene="res://TestStage6.tscn"
+config/icon="res://icon.png"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+3d/physics_engine="GodotPhysics"
+3d/godot_physics/bvh_collision_margin=0.01
+
+[rendering]
+
+quality/directional_shadow/size=8192
+quality/shadow_atlas/cubemap_size=1024
+quality/shadows/filter_mode=2
+quality/filters/msaa=2
+environment/default_environment="res://default_env.tres"

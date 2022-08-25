@@ -1,0 +1,114 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://BasicPlatform.tscn" type="PackedScene" id=1]
+
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( -0.25, 0.25, 1, 0.25, -0.25, 1, -0.25, -0.25, 1, -0.25, 0.25, -1, -0.25, -0.25, -1, 0.25, -0.25, -1, -0.25, 0.25, 1, -0.25, 0.25, -1, 0.25, -0.25, 1, -0.25, 0.25, -1, 0.25, -0.25, -1, 0.25, -0.25, 1, -0.25, 0.25, -1, -0.25, 0.25, 1, -0.25, -0.25, -1, -0.25, 0.25, 1, -0.25, -0.25, 1, -0.25, -0.25, -1, -0.25, -0.25, 1, 0.25, -0.25, 1, -0.25, -0.25, -1, 0.25, -0.25, 1, 0.25, -0.25, -1, -0.25, -0.25, -1 )
+
+[sub_resource type="PrismMesh" id=2]
+left_to_right = 0.0
+size = Vector3( 0.5, 0.5, 2 )
+
+[sub_resource type="ConcavePolygonShape" id=3]
+data = PoolVector3Array( -0.25, 0.25, 1, 0.25, -0.25, 1, -0.25, -0.25, 1, -0.25, 0.25, -1, -0.25, -0.25, -1, 0.25, -0.25, -1, -0.25, 0.25, 1, -0.25, 0.25, -1, 0.25, -0.25, 1, -0.25, 0.25, -1, 0.25, -0.25, -1, 0.25, -0.25, 1, -0.25, 0.25, -1, -0.25, 0.25, 1, -0.25, -0.25, -1, -0.25, 0.25, 1, -0.25, -0.25, 1, -0.25, -0.25, -1, -0.25, -0.25, 1, 0.25, -0.25, 1, -0.25, -0.25, -1, 0.25, -0.25, 1, 0.25, -0.25, -1, -0.25, -0.25, -1 )
+
+[sub_resource type="PrismMesh" id=4]
+left_to_right = 0.0
+size = Vector3( 0.5, 0.5, 2 )
+
+[node name="Stairs" type="Spatial"]
+
+[node name="BasicPlatform" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="BasicPlatform2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1.00274, 0, 0, 0, 1.00274, 0, 0, 0, 1.00274, 0, 0.5, -2 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="BasicPlatform3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1.00274, 0, 0, 0, 1.00274, 0, 0, 0, 1.00274, 0, 1, -4 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="BasicPlatform4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1.00274, 0, 0, 0, 1.00274, 0, 0, 0, 1.00274, 0, 1.5, -6 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="BasicPlatform5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1.00274, 0, 0, 0, 1.00274, 0, 0, 0, 1.00274, 0, 2, -8 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.75, -0.75 )
+visible = false
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+
+[node name="StaticBody2" type="StaticBody" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.25, -2.75 )
+visible = false
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody2"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+
+[node name="StaticBody3" type="StaticBody" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.75, -4.75 )
+visible = false
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody3"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody3"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+
+[node name="StaticBody4" type="StaticBody" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2.25, -6.75 )
+visible = false
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody4"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody4"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+
+[node name="StaticBody5" type="StaticBody" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.25, 1.25 )
+visible = false
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody5"]
+shape = SubResource( 3 )
+disabled = true
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody5"]
+mesh = SubResource( 4 )
+skeleton = NodePath("../..")
