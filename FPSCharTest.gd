@@ -4,7 +4,7 @@ extends RigidBody
 signal smacked_surface
 signal detached_from_surface
 
-var GRAVITY = Vector3(0,-10,0)
+var GRAVITY = Vector3(0,0,0)
 var JUMP = 10
 var WALK = 1
 var RUN = 2
@@ -29,6 +29,7 @@ var snap_flag = true
 var tracked_surfaces = []
 var feet_status = {}
 var jetpack = 0.0
+var jetpackUD = 0.0
 var nearby_bodies = []
 var area
 var jump_mode = false
@@ -102,8 +103,10 @@ func ray_cast(origin, vector):
 	var space = PhysicsServer.space_get_direct_state(get_world().space)
 	var from = origin
 	var to = origin + vector * 2
-	return space.intersect_ray(from, to, [get_rid(), my_shadow.get_rid()])
-	#return space.intersect_ray(from, to, [get_rid()])
+	if my_shadow:
+		return space.intersect_ray(from, to, [get_rid(), my_shadow.get_rid()])
+	else:
+		return space.intersect_ray(from, to, [get_rid()])
 
 # wow will this solve all the algorithms?
 func feet_cast():
@@ -447,6 +450,7 @@ func freefall_core(state : PhysicsDirectBodyState):
 
 	var v = state.linear_velocity
 	v += jetpack * -state.transform.basis.z * 2.0 * delta
+	v += jetpackUD * state.transform.basis.y * 2.0 * delta
 	v += GRAVITY * delta
 	if !nbos.empty():
 		#var effort = abs(control[0])+abs(control[1])
@@ -509,8 +513,13 @@ func execute_jump():
 		if ground_mode:
 			ground_mode_to_freefall()
 
+func updown_control(value):
+	jetpackUD = value
+
 var save_state = null
 func press_H():
+	#room_spin = 0.0 if room_spin else 1.0
+	GRAVITY = Vector3() if GRAVITY else Vector3(0,-10,0)
 	pass
 	#var mat = get_node("MeshInstance").get_surface_material(0)
 	#mat.albedo_color = Color(1,1,0)
@@ -876,9 +885,11 @@ func clue(is_mouse):
 	var cps = 60.0 * float(clue_counter) / frame_no
 	#print("cps ", cps )
 	#print("clue ", clue_counter)
-	hud.present("clues", clue_counter)
+	if hud:
+		hud.present("clues", clue_counter)
 	#hud.present("cf4", control_flag4)
 	
+	if my_shadow == null: return
 	my_shadow.rpc("deliver_future_state", frame_no, {
 		"position": transform.origin,
 		"velocity": linear_velocity,

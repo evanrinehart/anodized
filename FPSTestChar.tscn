@@ -74,12 +74,18 @@ material/0 = SubResource( 7 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+fov = 60.0
+far = 4000.0
 
 [node name="Cone" type="MeshInstance" parent="Camera"]
 transform = Transform( 0.5, 0, 0, 0, -1.09278e-08, -0.5, 0, 0.25, -2.18557e-08, 0, 0, -0.2 )
 mesh = SubResource( 12 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 13 )
+
+[node name="SpotLight" type="SpotLight" parent="Camera"]
+spot_range = 20.0
+spot_angle = 15.0
 
 [node name="Controls" type="Node" parent="."]
 script = ExtResource( 2 )

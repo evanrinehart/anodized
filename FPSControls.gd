@@ -28,6 +28,8 @@ func _unhandled_input(event):
 			elif event.scancode == KEY_SHIFT: avatar.enable_sprint(true)
 			elif event.scancode == KEY_SPACE: avatar.execute_jump()
 			elif event.scancode == KEY_H: avatar.press_H()
+			elif event.scancode == KEY_KP_2: avatar.updown_control(-1.0)
+			elif event.scancode == KEY_KP_8: avatar.updown_control(1.0)
 			elif event.scancode == KEY_ESCAPE:
 				get_tree().quit()
 		elif not event.is_echo():
@@ -37,6 +39,8 @@ func _unhandled_input(event):
 			elif event.scancode == KEY_D: set_ctrl(event.scancode, 0.0)
 			elif event.scancode == KEY_R: roll_mode = false
 			elif event.scancode == KEY_SHIFT: avatar.enable_sprint(false)
+			elif event.scancode == KEY_KP_2: avatar.updown_control(0.0)
+			elif event.scancode == KEY_KP_8: avatar.updown_control(0.0)
 	elif event is InputEventMouseMotion:
 		if roll_mode:
 			avatar.mouse_roll(event.relative[0])

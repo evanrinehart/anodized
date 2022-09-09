@@ -6,6 +6,8 @@ var debug
 var server_color = Color(0.5,0,0,1)
 var client_color = Color(0,0.5,0,1)
 
+var server_port = 51108
+
 func _ready():
 	hud = get_node("CanvasLayer/HUD")
 	debug = get_node("CanvasLayer/DebugPrinter")
@@ -79,7 +81,7 @@ func on_server_disconnected():
 var net_mode = "offline"
 func start_server():
 	var peer = NetworkedMultiplayerENet.new()
-	peer.create_server(10420, 8)
+	peer.create_server(server_port, 8)
 	get_tree().network_peer = peer
 	get_tree().connect("network_peer_connected",    self, "on_peer_connected")
 	get_tree().connect("network_peer_disconnected", self, "on_peer_disconnected")
@@ -96,7 +98,7 @@ func start_server():
 
 func start_client():
 	var peer = NetworkedMultiplayerENet.new()
-	peer.create_client("localhost", 10420)
+	peer.create_client("localhost", server_port)
 	debug.put_line("multiplayer", "attempting to connect to server. stand by...")
 	get_tree().network_peer = peer
 	get_tree().connect("connected_to_server",   self, "on_connected_to_server")
