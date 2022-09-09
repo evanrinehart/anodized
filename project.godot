@@ -14,6 +14,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ClockTime.gd"
 }, {
+"base": "Resource",
+"class": "Codex",
+"language": "GDScript",
+"path": "res://Codex.gd"
+}, {
+"base": "Resource",
+"class": "CosmicObject",
+"language": "GDScript",
+"path": "res://CosmicObject.gd"
+}, {
 "base": "RigidBody",
 "class": "FPSCharTest",
 "language": "GDScript",
@@ -39,15 +49,45 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://GhostProp.gd"
 }, {
+"base": "Reference",
+"class": "LargeNum",
+"language": "GDScript",
+"path": "res://LargeNum.gd"
+}, {
+"base": "Resource",
+"class": "MagCurve",
+"language": "GDScript",
+"path": "res://MagCurve.gd"
+}, {
+"base": "Resource",
+"class": "MagNum",
+"language": "GDScript",
+"path": "res://MagNum.gd"
+}, {
+"base": "Resource",
+"class": "MagVec",
+"language": "GDScript",
+"path": "res://MagVec.gd"
+}, {
 "base": "Camera",
 "class": "MainCam",
 "language": "GDScript",
 "path": "res://MainCam.gd"
 }, {
+"base": "MeshInstance",
+"class": "MappedPlanet",
+"language": "GDScript",
+"path": "res://Holodeck/MappedPlanet.gd"
+}, {
 "base": "Resource",
 "class": "MyClass",
 "language": "GDScript",
 "path": "res://MyClass.gd"
+}, {
+"base": "Reference",
+"class": "Point",
+"language": "GDScript",
+"path": "res://Point.gd"
 }, {
 "base": "KinematicBody",
 "class": "RemoteAvatar",
@@ -58,6 +98,11 @@ _global_script_classes=[ {
 "class": "RotorFormula",
 "language": "GDScript",
 "path": "res://RotorFormula.gd"
+}, {
+"base": "Reference",
+"class": "SectorDiff",
+"language": "GDScript",
+"path": "res://SectorDiff.gd"
 }, {
 "base": "KinematicBody",
 "class": "Spacecraft",
@@ -75,25 +120,64 @@ _global_script_classes=[ {
 "path": "res://ThermalGases.gd"
 }, {
 "base": "Resource",
+"class": "TimeDiff",
+"language": "GDScript",
+"path": "res://TimeDiff.gd"
+}, {
+"base": "Resource",
 "class": "TimeHappener",
 "language": "GDScript",
 "path": "res://TimeHappener.gd"
+}, {
+"base": "Resource",
+"class": "UniverseCoord",
+"language": "GDScript",
+"path": "res://UniverseCoord.gd"
+}, {
+"base": "Object",
+"class": "Util",
+"language": "GDScript",
+"path": "res://Util.gd"
+}, {
+"base": "Reference",
+"class": "Wector3",
+"language": "GDScript",
+"path": "res://Wector3.gd"
+}, {
+"base": "Reference",
+"class": "Zector3",
+"language": "GDScript",
+"path": "res://Zector3.gd"
 } ]
 _global_script_class_icons={
 "ClockTime": "",
+"Codex": "",
+"CosmicObject": "",
 "FPSCharTest": "",
 "Gases": "",
 "GhostCharacter": "",
 "GhostLevel": "",
 "GhostProp": "",
+"LargeNum": "",
+"MagCurve": "",
+"MagNum": "",
+"MagVec": "",
 "MainCam": "",
+"MappedPlanet": "",
 "MyClass": "",
+"Point": "",
 "RemoteAvatar": "",
 "RotorFormula": "",
+"SectorDiff": "",
 "Spacecraft": "",
 "Span": "",
 "ThermalGases": "",
-"TimeHappener": ""
+"TimeDiff": "",
+"TimeHappener": "",
+"UniverseCoord": "",
+"Util": "",
+"Wector3": "",
+"Zector3": ""
 }
 
 [application]
@@ -101,6 +185,23 @@ _global_script_class_icons={
 config/name="anodized"
 run/main_scene="res://TestStage6.tscn"
 config/icon="res://icon.png"
+
+[input]
+
+zoom_in={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777235,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+zoom_out={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777236,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[network]
+
+limits/debugger_stdout/max_chars_per_second=16000
 
 [physics]
 
